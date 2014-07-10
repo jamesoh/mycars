@@ -4,5 +4,8 @@
     This is the home page for 
     %a{:href => "https://www.truecar.com"}TrueCar's 
     MyGarage sandbox application.
-  = link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary"
+  - if !signed_in?
+    = link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary"
+  - else
+    = "You are already signed in"
 = link_to image_tag("truecar.png", size: "125x125", alt: "TrueCar"), 'http://www.truecar.com'
