@@ -1,0 +1,6 @@
+= form_for(@car) do |f|
+  = render 'shared/error_messages', object: f.object
+  .field
+    = f.label "Add a car to you garage"
+    = f.text_field :vin, placeholder: "Enter a VIN..."
+  = f.submit "Add", class: "btn btn-large btn-primary"

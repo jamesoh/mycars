@@ -1,0 +1,4 @@
+- if @garage_items.any?
+  %ol.cars
+    = render partial: 'shared/garage_item', collection: @garage_items
+  = will_paginate @garage_items
