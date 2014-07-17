@@ -32,7 +32,7 @@ class CarsController < ApplicationController
   private
     
     def car_params
-      params.require(:car).permit(:vin, :desc)
+      params.require(:car).permit(:vin)
     end
 
     def correct_user
@@ -53,7 +53,6 @@ class CarsController < ApplicationController
         hash = makes_json["data"][0]
 
         car.image = hash["img_url_large"]
-        car.desc = "Year: #{hash["year"]} Make: #{hash["make_name"]} Model: #{hash["model_name"]}"
         car.year = hash["year"]
         car.make = hash["make_name"]
         car.model = hash["model_name"]

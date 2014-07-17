@@ -6,6 +6,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @cars = @user.cars.paginate(page: params[:page])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @user.cars } 
+    end
   end
 
   def new
@@ -13,6 +18,7 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       @user = User.new
+      
     end
   end
     
