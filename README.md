@@ -1,5 +1,5 @@
-# ruby on Rails Tutorial: sample application
+# MyGarage Sandbox Application 
 
-This is the sample application for 
+This application was based on  
 the [*Ruby on Rails Tutorial*](http://railstutorial.org/)
 by [Michael Hartl](http://micahelhartl.com/).
