@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     @cars = @user.cars.paginate(page: params[:page])
 
     respond_to do |format|
-      format.html
       format.json { render json: @user.cars } 
     end
   end
