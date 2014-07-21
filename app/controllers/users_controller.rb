@@ -6,6 +6,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @cars = @user.cars.paginate(page: params[:page])
+  end
+ 
+  # Werid hack to only allow a/pag/:pag_id/user/:id path for api 
+  def show_api
+    @user = User.find(params[:id])
+    @cars = @user.cars.paginate(page: params[:page])
 
     respond_to do |format|
       format.html
