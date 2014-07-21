@@ -1,18 +1,30 @@
 %li
-  %ul.desc
-    = image_tag car.data["img_url_large"]
-  %ul.desc
-    Year: #{car.data["year"]}
-  %br
-  %ul.desc
-    Make: #{car.data["make_name"]}
-  %br
-  %ul.desc
-    Model: #{car.data["model_name"]}
-  %br
-  %ul.desc
-    Vin: #{car.vin}
-  %br
+  .row
+    %ul.desc.center
+      = image_tag car.data["img_url_large"]
+    %ul.desc.center
+      Vin: #{car.vin}
+    %br
+    .span4
+      %ul.desc
+        Year: #{car.data["year"]}
+      %br
+      %ul.desc
+        Make: #{car.data["make_name"]}
+      %br
+      %ul.desc
+        Model: #{car.data["model_name"]}
+      %br
+    .span4
+      %ul.desc
+        Chrome Model: #{car.data["chrome_model_id"]}
+      %br
+      %ul.desc
+        Chrome Trim: #{car.data["chrome_trim_id"]}
+      %br
+      %ul.desc
+        Style: #{car.data["style_name"]}
+      %br
 
   %span.timestamp
     Added #{time_ago_in_words(car.created_at)} ago.

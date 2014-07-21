@@ -1,7 +1,7 @@
 %li{id: garage_item.id}
   = image_tag garage_item.data["img_url_large"]
   %span.user
-    = link_to "View in list", garage_item.user
+    = link_to "View in garage", garage_item.user
   %span.desc
     = "#{garage_item.data["year"]} #{garage_item.data["make_name"]} #{garage_item.data["model_name"]}"
   %span.timestamp

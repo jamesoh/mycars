@@ -194,18 +194,30 @@ input {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
   }
+
+  .left {
+    text-align: left;
+  }
+
+  .right {
+    text-align: right;
+  }
 }
+
 .desc {
   font-size: 18px;
   display: block;
 }
+
 .timestamp {
   color: $grayLight;
 }
+
 .gravatar {
   float: left;
   margin-right: 10px;
 }
+
 aside {
   textarea {
     height: 100px;
