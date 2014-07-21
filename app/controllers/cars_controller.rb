@@ -40,22 +40,13 @@ class CarsController < ApplicationController
       redirect_to root_url if @car.nil?
     end
 
-    def vin_valid(car)
-      Net::HTTP.get_response URI.parse("http://clearbook.qa2.truecardev.com/a/pag/120/default_style?vin=#{car.vin}")
-    end
-
     def parse(car)
       uri = URI.parse("http://clearbook.qa2.truecardev.com/a/pag/120/default_style?vin=#{car.vin}")
       response = Net::HTTP.get_response uri
       makes_json = JSON.parse response.body
       
       if !makes_json["data"].nil?
-        hash = makes_json["data"][0]
-
-        car.image = hash["img_url_large"]
-        car.year = hash["year"]
-        car.make = hash["make_name"]
-        car.model = hash["model_name"]
+        car.data = makes_json["data"][0]
       else
         nil
       end

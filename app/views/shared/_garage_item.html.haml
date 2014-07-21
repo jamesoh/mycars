@@ -1,9 +1,9 @@
 %li{id: garage_item.id}
-  = image_tag garage_item.image
+  = image_tag garage_item.data["img_url_large"]
   %span.user
     = link_to "View in list", garage_item.user
   %span.desc
-    = "#{garage_item.make} #{garage_item.model}"
+    = "#{garage_item.data["year"]} #{garage_item.data["make_name"]} #{garage_item.data["model_name"]}"
   %span.timestamp
     Posted #{time_ago_in_words(garage_item.created_at)} ago.
   - if current_user?(garage_item.user)

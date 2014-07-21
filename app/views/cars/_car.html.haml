@@ -1,14 +1,14 @@
 %li
   %ul.desc
-    = image_tag car.image
+    = image_tag car.data["img_url_large"]
   %ul.desc
-    Year: #{car.year}
+    Year: #{car.data["year"]}
   %br
   %ul.desc
-    Make: #{car.make}
+    Make: #{car.data["make_name"]}
   %br
   %ul.desc
-    Model: #{car.model}
+    Model: #{car.data["model_name"]}
   %br
   %ul.desc
     Vin: #{car.vin}
