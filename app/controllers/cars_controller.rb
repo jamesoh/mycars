@@ -1,9 +1,10 @@
 class CarsController < ApplicationController
-  before_action :signed_in_user, only: [:create, :destroy]
-  before_action :correct_user,  only: :destroy
+  #before_action :signed_in_user, only: [:create, :destroy]
+  #before_action :correct_user,  only: :destroy
   
   def create
-    @car = current_user.cars.build(car_params)
+    user = User.find_by_id(params[:id])
+    @car = user.cars.build(:vin => params[:vin])
     if @car.valid?
       if parse(@car) 
         if @car.save
@@ -24,6 +25,7 @@ class CarsController < ApplicationController
   end
 
   def destroy
+    @car = Car.find_by_vin(params[:vin])
     @car.destroy
     redirect_to root_url
   end
