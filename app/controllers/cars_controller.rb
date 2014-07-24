@@ -30,7 +30,6 @@ class CarsController < ApplicationController
     redirect_to root_url
   end
 
-
   private
     
     def car_params

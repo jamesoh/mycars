@@ -9,9 +9,9 @@ MyCarApp::Application.routes.draw do
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
-  match '/a/pag/:pag_id/users/:id', to: 'users#show_api', via: 'get'
-  match '/a/pag/:pag_id/users/:id/cars/:vin/delete', to: 'cars#destroy', via: 'delete'
-  match '/a/pag/:pag_id/users/:id/cars/:vin/create', to: 'cars#create', via: 'post'
+  #match '/a/pag/:pag_id/users/:id', to: 'users#show_api', via: 'get'
+  #match '/a/pag/:pag_id/users/:id/cars/:vin/delete', to: 'cars#destroy', via: 'delete'
+  #match '/a/pag/:pag_id/users/:id/cars/:vin/create', to: 'cars#create', via: 'post'
   get "static_pages/home"
   get "static_pages/help"
   get "static_pages/about"

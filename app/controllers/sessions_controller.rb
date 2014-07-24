@@ -1,17 +1,23 @@
 class SessionsController < ApplicationController
-  
+  require 'net/http'
+  require 'uri' 
+
   def new
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      sign_in user
-      redirect_back_or root_url 
-    else
-      flash.now[:error] = 'Invalid email/password combination'
-      render 'new'
-    end
+    # This segment of code is not functioning, tried to mess with api
+    uri = URI('http://localhost:3000/a/pag/120/signin')
+    #params = { :email => 'foo@bar.com', :password => 'foobar' }
+    #uri.query = URI.encode_www_form(params)
+    req = Net::HTTP::Get.new(uri)
+    req.basic_auth 'user', 'pass'
+
+    #res = Net::HTTP.get_response(uri)
+    res = Net::HTTP.start(uri.hostname, uri.port) {|http|
+      http.request(req)
+    }
+    render :text => res.body 
   end
   
   def destroy
